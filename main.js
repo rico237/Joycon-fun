@@ -38,7 +38,9 @@ function pollGamepads() {
   let gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
   let gamepadArray = [];
   for(let i = 0; i < gamepads.length; i++) {
-    gamepadArray.push(gamepads[i]);
+    if (gamepads[i] !== null) {
+      gamepadArray.push(gamepads[i]);
+    }
   }
   let orderedGamepads = [];
   orderedGamepads.push(gamepadArray.find(g => g.id.indexOf('Joy-Con (R)') > -1));
